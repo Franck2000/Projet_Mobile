@@ -31,10 +31,66 @@
 }
 .calc-button{
   width:calc(25% - 4px);
-  height: 64px;
+
   font-size: 32px;
 }
 .egal{
   width: 99%;
   height: 64px;
 }
+.main{
+  height: 98%;
+}
+.item{
+
+}
+.but{
+  height: 75%;
+}
+.calc-main {
+  background-color: #000000;
+  height: 100%;
+}
+
+.calc-display {
+  background-color: #000000;
+  padding: 60px 15px 20px;
+}
+.buttom{
+  height: 100%;
+}
+
+ion-input {
+  color: #ffffff;
+  font-size: 48px;
+}
+
+ion-col {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+ion-button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50;
+  font-size: 20px;
+}
+
+.double-width {
+  width: 86%;
+}
+.grand{
+  height: 100%;
+  display: flex;
+
+  flex-direction: column;
+}
+.input{
+  height: 20%;
+}
+.enfin{
+  height: 80%;
+}
+

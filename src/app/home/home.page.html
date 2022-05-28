@@ -1,28 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-   Calculatrice
+      Calculatrice
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="main">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div>
-    <ion-item>
-      <ion-label class="value">
-        {{value}}
-      </ion-label>
-    </ion-item>
-    <div  *ngFor="let numberGroup of numberGroups">
-      <ion-button class="calc-button" *ngFor="let num of numberGroup" (click)="onButtonPress(num)">{{num}}</ion-button>
+  <div class="grand">
+    <div class="input">
+      <ion-item class="item">
+        <ion-label class="value">
+          {{value}}
+        </ion-label>
+      </ion-item>
     </div>
-    <ion-button class="egal" (click)="onButtonPress('=')">=</ion-button>
-
+    <div class="enfin">
+      <div class="buttom">
+      <div *ngFor="let numberGroup of numberGroups">
+        <ion-button class="calc-button" *ngFor="let num of numberGroup" (click)="onButtonPress(num)" >{{num}}
+        </ion-button>
+      </div>
+      <ion-button class="egal" (click)="onButtonPress('=')">=</ion-button>
+    </div>
+    </div>
   </div>
 </ion-content>
