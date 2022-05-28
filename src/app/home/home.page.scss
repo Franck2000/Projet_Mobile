@@ -25,3 +25,16 @@
 #container a {
   text-decoration: none;
 }
+.value{
+  text-align: right;
+  font-size: 32px;
+}
+.calc-button{
+  width:calc(25% - 4px);
+  height: 64px;
+  font-size: 32px;
+}
+.egal{
+  width: 99%;
+  height: 64px;
+}

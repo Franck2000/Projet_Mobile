@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+   Calculatrice
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,8 +13,16 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div>
+    <ion-item>
+      <ion-label class="value">
+        {{value}}
+      </ion-label>
+    </ion-item>
+    <div  *ngFor="let numberGroup of numberGroups">
+      <ion-button class="calc-button" *ngFor="let num of numberGroup" (click)="onButtonPress(num)">{{num}}</ion-button>
+    </div>
+    <ion-button class="egal" (click)="onButtonPress('=')">=</ion-button>
+
   </div>
 </ion-content>
