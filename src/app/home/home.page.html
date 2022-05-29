@@ -14,7 +14,7 @@
   </ion-header>
 
   <div class="grand">
-    <div class="input">
+    <div class="calc-display">
       <ion-item class="item">
         <ion-label class="value">
           {{value}}
@@ -24,10 +24,10 @@
     <div class="enfin">
       <div class="buttom">
       <div *ngFor="let numberGroup of numberGroups">
-        <ion-button class="calc-button" *ngFor="let num of numberGroup" (click)="onButtonPress(num)" >{{num}}
+        <ion-button class="calc-button" shape="round" color="dark" *ngFor="let num of numberGroup" (click)="onButtonPress(num)" >{{num}}
         </ion-button>
       </div>
-      <ion-button class="egal" (click)="onButtonPress('=')">=</ion-button>
+      <ion-button class="egal"  color="light" (click)="onButtonPress('=')">=</ion-button>
     </div>
     </div>
   </div>
