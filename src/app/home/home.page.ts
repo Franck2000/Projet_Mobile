@@ -26,24 +26,34 @@ export class HomePage {
         this.value = '' + num;
         this.cmp = '' + num;
         if (this.lastoperator == 'x')
-        this.cmp = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
-      if (this.lastoperator == '-')
-        this.cmp = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
-      if (this.lastoperator == '+')
-        this.cmp = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
-      if (this.lastoperator == '/')
-        this.cmp = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
+          this.cmp = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
+        if (this.lastoperator == '-')
+          this.cmp = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
+        if (this.lastoperator == '+')
+          this.cmp = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
+        if (this.lastoperator == '/')
+          this.cmp = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
       }
       else {
         this.value += '' + num;
         this.cmp += '' + num;
-        this.cmp = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
+        if (this.lastoperator == 'x')
+          this.cmp = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
+        if (this.lastoperator == '-')
+          this.cmp = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
+        if (this.lastoperator == '+')
+          this.cmp = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
+        if (this.lastoperator == '/')
+          this.cmp = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
       }
       this.readyForNewInput = false;
 
     }
     else if (num == '.') {
-      if (!this.virgule) this.value += '' + num;
+      if (!this.virgule) {
+        this.value += '' + num;
+        this.cmp += '' + num;
+      }
       this.virgule = true;
       this.readyForNewInput = false;
 
@@ -59,14 +69,6 @@ export class HomePage {
     else if (num == '=') {
       this.virgule = false
       this.value = '' + this.cmp;
-      // if (this.lastoperator == 'x')
-      //   this.value = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
-      // if (this.lastoperator == '-')
-      //   this.value = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
-      // if (this.lastoperator == '+')
-      //   this.value = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
-      // if (this.lastoperator == '/')
-      //   this.value = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
       this.readyForNewInput = true;
     }
     else {///operator
