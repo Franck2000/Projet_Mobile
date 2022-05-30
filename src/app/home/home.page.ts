@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   value = '0';
+  cmp = '0';
   oldvalue = '0';
   lastoperator = '';
   virgule = false;
@@ -21,10 +22,23 @@ export class HomePage {
     console.log(num)
     if (typeof num == 'number') {
 
-      if (this.readyForNewInput)
+      if (this.readyForNewInput) {
         this.value = '' + num;
-      else
+        this.cmp = '' + num;
+        if (this.lastoperator == 'x')
+        this.cmp = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
+      if (this.lastoperator == '-')
+        this.cmp = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
+      if (this.lastoperator == '+')
+        this.cmp = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
+      if (this.lastoperator == '/')
+        this.cmp = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
+      }
+      else {
         this.value += '' + num;
+        this.cmp += '' + num;
+        this.cmp = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
+      }
       this.readyForNewInput = false;
 
     }
@@ -36,24 +50,28 @@ export class HomePage {
     }
     else if (num == 'c') {
       this.value = '0';
+      this.cmp = '0';
+      this.oldvalue = '0';
+      this.lastoperator = '';
       this.readyForNewInput = true;
       this.virgule = false
     }
     else if (num == '=') {
       this.virgule = false
-      if (this.lastoperator == 'x')
-        this.value = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
-      if (this.lastoperator == '-')
-        this.value = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
-      if (this.lastoperator == '+')
-        this.value = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
-      if (this.lastoperator == '/')
-        this.value = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
+      this.value = '' + this.cmp;
+      // if (this.lastoperator == 'x')
+      //   this.value = '' + (parseFloat(this.oldvalue) * parseFloat(this.value));
+      // if (this.lastoperator == '-')
+      //   this.value = '' + (parseFloat(this.oldvalue) - parseFloat(this.value));
+      // if (this.lastoperator == '+')
+      //   this.value = '' + (parseFloat(this.oldvalue) + parseFloat(this.value));
+      // if (this.lastoperator == '/')
+      //   this.value = '' + (parseFloat(this.oldvalue) / parseFloat(this.value));
       this.readyForNewInput = true;
     }
     else {///operator
       this.readyForNewInput = true;
-      this.oldvalue = this.value;
+      this.oldvalue = this.cmp;
       this.lastoperator = num;
       this.virgule = false
     }
